@@ -1,21 +1,22 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+title: Sannovex Pharmaceuticals
+image: /img/sannovex-building.png
+heading: Operations
+subheading: Bridges the gap between efficacy and affordability of high quality medicines
 mainpitch:
-  title: Why Kaldi
+  title: Who are we?
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
-description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+    Sannovex Pharmaceuticals’ field force started in 2010 with the arrival of
+    Sannovex branded products from global manufacturers in China, India and
+    later in Europe in 2011. It started with ten (10) medical representatives,
+    increased to twenty five (25) in 2011, forty (40) in 2012, and eighty (80)
+    in the fourth quarter of 2013 under two divisions, Line 1 and Line 2.
+description: "Sannovex field force covers all major provinces and cities all
+  over the Philippines focusing on private and public hospitals as the company
+  currently carries pharmaceutical products in injection form.  In 2018, new
+  divisions will be formed as oral preparations are expected to be approved by
+  the local FDA. "
 intro:
   blurbs:
     - image: /img/coffee.png
