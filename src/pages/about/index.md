@@ -1,19 +1,27 @@
 ---
 templateKey: 'about-page'
 path: /about
-title: About our values
+title: Who We Are
+subtitle:
+image: /img/who-we-are.jpg
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+### Business
+All Sannovex products are imported and manufactured through product licensing agreements under its own brand. Our product portfolio includes preparations that are classified by the national drug formulary.
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
+From July 2006 to July 2007, Sannovex validated the efficacy, quality and affordability of generic products approved by the Philippines’ Bureau of Food and Drugs coming from Asian and some European countries, by way of marketing and distributing these products, and providing doctors and hospitals free medicines for their clinical impression trials. The result was a very convincing affirmation that generic drugs from highly reputable sources, are as effective as the originator drugs, and can help patients save from 25 to 80% compared to the cost of the originator brands.
 
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Our business is growing at an average rate of 52% annually and puts us at the top 50 pharmaceutical companies in the Philippines.
+
+### Operations
+Sannovex covers all major provinces and cities all over the Philippines focusing on private and public hospitals as the company currently carries pharmaceutical products in injection form. 
+
+Our field force started in 2010 with the arrival of Sannovex branded products from global manufacturers in China, India and later in Europe in 2011. Initially with ten (10) medical representatives, increased to twenty five (25) in 2011, forty (40) in 2012, and eighty (80) in the fourth quarter of 2013 under two divisions, Line 1 and Line 2. Opening of new divisions is underway as oral preparations are expected to be approved by the local FDA.    
+
+### Partners
+Sannovex’s partners are global manufacturers that adhere to strict Current Good Manufacturing Practice (CGMP) standard.
+
+We obtained product licensing agreements from top pharmaceutical manufacturers in Asia and Europe that practice highly efficient and cost-effective technologies.
+
+

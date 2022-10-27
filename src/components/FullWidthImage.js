@@ -4,10 +4,10 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function FullWidthImage(props) {
   const {
-    height = 400,
+    height = 500,
     img,
     title,
-    subheading,
+    subtitle,
     imgPosition = "top left",
   } = props;
 
@@ -55,7 +55,7 @@ export default function FullWidthImage(props) {
             formats={["auto", "webp", "avif"]}
           />
         )}
-        {(title || subheading) && (
+        {(title || subtitle) && (
           <div
             style={{
               // By using the same grid area for both, they are stacked on top of each other
@@ -71,9 +71,8 @@ export default function FullWidthImage(props) {
               <h1
                 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
                 style={{
-                  boxShadow:
-                    "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-                  backgroundColor: "rgb(255, 68, 0)",
+                 
+                  background:"linear-gradient(70deg,rgb(58,42,97,0.8),rgba(225,38,43,0.8))",
                   color: "white",
                   lineHeight: "1",
                   padding: "0.25em",
@@ -82,20 +81,21 @@ export default function FullWidthImage(props) {
                 {title}
               </h1>
             )}
-            {subheading && (
+            {subtitle && (
               <h3
                 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
                 style={{
-                  boxShadow:
-                    "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-                  backgroundColor: "rgb(255, 68, 0)",
+                  // boxShadow:
+                  //   "rgb(58,42,97) 0.5rem 0px 0px, rgb(58,42,97) -0.5rem 0px 0px",
+                  background:"linear-gradient(70deg,rgb(58,42,97,0.8),rgba(225,38,43,0.8))",
                   color: "white",
                   lineHeight: "1",
                   padding: "0.25rem",
                   marginTop: "0.5rem",
+                  fontFamily: "cursive"
                 }}
               >
-                {subheading}
+                {subtitle}
               </h3>
             )}
           </div>
@@ -109,5 +109,5 @@ FullWidthImage.propTypes = {
   img: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   height: PropTypes.number,
-  subheading: PropTypes.string,
+  subtitle: PropTypes.string,
 };

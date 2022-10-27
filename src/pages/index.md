@@ -1,9 +1,8 @@
 ---
 templateKey: index-page
+image: /img/home.png
 title: Sannovex Pharmaceuticals
-image: /img/sannovex-building.png
-heading: Operations
-subheading: Bridges the gap between efficacy and affordability of high quality medicines
+subtitle: Bridges the gap between efficacy and affordability of high quality medicines
 mainpitch:
   title: Who are we?
   description: >
@@ -12,6 +11,7 @@ mainpitch:
     later in Europe in 2011. It started with ten (10) medical representatives,
     increased to twenty five (25) in 2011, forty (40) in 2012, and eighty (80)
     in the fourth quarter of 2013 under two divisions, Line 1 and Line 2.
+heading: Operations
 description: "Sannovex field force covers all major provinces and cities all
   over the Philippines focusing on private and public hospitals as the company
   currently carries pharmaceutical products in injection form.  In 2018, new
