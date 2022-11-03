@@ -68,26 +68,27 @@ export default function FullWidthImage(props) {
           >
             {/* Any content here will be centered in the component */}
             {title && (
-              <h1
+              <h3
                 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
                 style={{
                  
-                  background:"linear-gradient(70deg,rgb(58,42,97,0.8),rgba(225,38,43,0.8))",
+                  background:"linear-gradient(to bottom right,rgb(240, 178, 122,0.7),rgba(255,255,255,0.5))",
                   color: "white",
                   lineHeight: "1",
                   padding: "0.25em",
                 }}
               >
                 {title}
-              </h1>
+              </h3>
             )}
             {subtitle && (
-              <h3
+              <h1
                 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
                 style={{
                   // boxShadow:
                   //   "rgb(58,42,97) 0.5rem 0px 0px, rgb(58,42,97) -0.5rem 0px 0px",
-                  background:"linear-gradient(70deg,rgb(58,42,97,0.8),rgba(225,38,43,0.8))",
+                  // background:"linear-gradient(70deg,rgb(58,42,97,0.8),rgba(225,38,43,0.8))",
+                  background:"linear-gradient(to bottom right,rgb(113, 125, 126,0.7),rgba(255,255,255,0.5))",
                   color: "white",
                   lineHeight: "1",
                   padding: "0.25rem",
@@ -96,7 +97,7 @@ export default function FullWidthImage(props) {
                 }}
               >
                 {subtitle}
-              </h3>
+              </h1>
             )}
           </div>
         )}
