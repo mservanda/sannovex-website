@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import { ProductPageTemplate } from '../../templates/product-page'
 
 const ProductPagePreview = ({ entry, getAsset }) => {
+
+  const entryProductList = entry.getIn(['data', 'productList'])
+  const productList = entryProductList ? entryProductList.toJS() : []
+
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 
@@ -16,6 +20,7 @@ const ProductPagePreview = ({ entry, getAsset }) => {
     <ProductPageTemplate
       image={getAsset(entry.getIn(['data', 'image']))}
       title={entry.getIn(['data', 'title'])}
+      productList={productList}
       heading={entry.getIn(['data', 'heading'])}
       description={entry.getIn(['data', 'description'])}
       intro={{ blurbs }}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
@@ -9,6 +9,9 @@ import Pricing from '../components/Pricing';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import FullWidthImage from '../components/FullWidthImage';
 
+import ProductGroup from '../components/ProductGroup';
+import ProductCategories from '../components/ProductCategories';
+
 // eslint-disable-next-line
 export const ProductPageTemplate = ({
 	image,
@@ -16,76 +19,70 @@ export const ProductPageTemplate = ({
 	heading,
 	description,
 	intro,
+	productList,
 	main,
 	testimonials,
 	fullImage,
 	pricing
 }) => {
 	const heroImage = getImage(image) || image;
-	const fullWidthImage = getImage(fullImage) || fullImage;
+
+	const [ selectedCategory, setSelectedCategory ] = useState(null);
+
+	useEffect(
+		() => {
+			if (selectedCategory) {
+				window.history.pushState({}, '', '/products/' + selectedCategory);
+			}
+		},
+		[ selectedCategory ]
+	);
+
+	const categories = [
+		{ label: 'Antibiotics', image: 'img/coffee.png' },
+		{ label: 'Corticosteroids', image: 'img/coffee.png' },
+		{ label: 'Gastrointestinal', image: 'img/coffee.png' },
+		{ label: 'Diuretics', image: 'img/coffee.png' },
+		{ label: 'Vitamins', image: 'img/coffee.png' },
+		{ label: 'NSAID', image: 'img/coffee.png' },
+		{ label: 'Analgesic / Antipyretic', image: 'img/coffee.png' }
+	];
 
 	return (
-		<div className="content">
+		<div>
 			<FullWidthImage img={heroImage} title={title} />
 			<section className="section section--gradient">
 				<div className="container">
-					<div className="section">
+					{selectedCategory ? (
 						<div className="columns">
-							<div className="column is-7 is-offset-1">
-								<h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-								<p>{description}</p>
+							<div className="column is-2 is-hidden-mobile">
+								<div className="panel">
+									{/* <p className="panel-heading has-background-grey has-text-light">Categories</p> */}
+									{categories.map((category) => (
+										<a
+											className={
+												'panel-block' +
+												(selectedCategory === category.label
+													? ' has-background-link-light has-text-success-dark'
+													: '')
+											}
+											onClick={() => setSelectedCategory(category.label)}
+										>
+											{category.label}
+										</a>
+									))}
+								</div>
+							</div>
+							<div className="column is-10">
+								<div className="title has-text-success-dark">{selectedCategory}</div>
+								<ProductGroup productList={productList} />
 							</div>
 						</div>
-						<div className="columns">
-							<div className="column is-10 is-offset-1">
-								{/* <Features gridItems={intro.blurbs} /> */}
-								{/* <div className="columns">
-									<div className="column is-7">
-										<h3 className="has-text-weight-semibold is-size-3">{main.heading}</h3>
-										<p>{main.description}</p>
-									</div>
-								</div>
-								<div className="tile is-ancestor">
-									<div className="tile is-vertical">
-										<div className="tile">
-											<div className="tile is-parent is-vertical">
-												<article className="tile is-child">
-													<PreviewCompatibleImage imageInfo={main.image1} />
-												</article>
-											</div>
-											<div className="tile is-parent">
-												<article className="tile is-child">
-													<PreviewCompatibleImage imageInfo={main.image2} />
-												</article>
-											</div>
-										</div>
-										<div className="tile is-parent">
-											<article className="tile is-child">
-												<PreviewCompatibleImage imageInfo={main.image3} />
-											</article>
-										</div>
-									</div>
-								</div>
-								<Testimonials testimonials={testimonials} /> */}
-							</div>
-						</div>
-					</div>
+					) : (
+						<ProductCategories categories={categories} setSelectedCategory={setSelectedCategory} />
+					)}
 				</div>
 			</section>
-			{/* <FullWidthImage img={fullWidthImage} imgPosition={'bottom'} />
-			<section className="section section--gradient">
-				<div className="container">
-					<div className="section">
-						<div className="columns">
-							<div className="column is-10 is-offset-1">
-								<h2 className="has-text-weight-semibold is-size-2">{pricing.heading}</h2>
-								<p className="is-size-5">{pricing.description}</p>
-								<Pricing data={pricing.plans} />
-							</div>
-						</div>
-					</div>
-				</div>
-			</section> */}
 		</div>
 	);
 };
@@ -93,6 +90,7 @@ export const ProductPageTemplate = ({
 ProductPageTemplate.propTypes = {
 	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
 	title: PropTypes.string,
+	productList: PropTypes.array,
 	heading: PropTypes.string,
 	description: PropTypes.string,
 	intro: PropTypes.shape({
@@ -122,6 +120,7 @@ const ProductPage = ({ data }) => {
 			<ProductPageTemplate
 				image={frontmatter.image}
 				title={frontmatter.title}
+				productList={frontmatter.productList}
 				heading={frontmatter.heading}
 				description={frontmatter.description}
 				intro={frontmatter.intro}
@@ -152,6 +151,16 @@ export const productPageQuery = graphql`
 				image {
 					childImageSharp {
 						gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+					}
+				}
+				productList {
+					brandName
+					genericName
+					category
+					image {
+						childImageSharp {
+							gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
+						}
 					}
 				}
 				heading

@@ -3,9 +3,25 @@ templateKey: 'product-page'
 path: /products
 title: Our Products
 image: /img/products-intro.jpg
+productList:
+  - brandName: Amsulvex
+    genericName: Ampicillin Sulbactam
+    category: Antibiotic
+    image: /img/products/AMSULVEX.jpg
+  - brandName: Tazovex
+    genericName: Piperacillin Tazobactam
+    category: Antibiotic
+    image: /img/TAZOVEX.jpg
+  - brandName: Meropevex
+    genericName: Meropenem
+    category: Antibiotic
+    image: /img/MEROPEVEX.jpg
+  - brandName: Cefuvex
+    genericName: Cefuroxime
+    category: Antibiotic
+    image: /img/CEFUVEX.jpg
 heading: 
 description: >-
-  
 intro:
   blurbs:
     - image: /img/coffee.png
