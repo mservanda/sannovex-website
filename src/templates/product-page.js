@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
+
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import Testimonials from '../components/Testimonials';
 import Pricing from '../components/Pricing';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import FullWidthImage from '../components/FullWidthImage';
-
 import ProductGroup from '../components/ProductGroup';
 import ProductCategories from '../components/ProductCategories';
+import ProductList from '../components/ProductList';
 
 // eslint-disable-next-line
 export const ProductPageTemplate = ({
@@ -23,20 +25,22 @@ export const ProductPageTemplate = ({
 	main,
 	testimonials,
 	fullImage,
-	pricing
+	pricing,
+	location
 }) => {
+	const params = new URLSearchParams(location.search);
+	const [ selectedCategory, setSelectedCategory ] = useState(params.get('category'));
+
 	const heroImage = getImage(image) || image;
 
-	const [ selectedCategory, setSelectedCategory ] = useState(null);
-
-	useEffect(
-		() => {
-			if (selectedCategory) {
-				window.history.pushState({}, '', '/products/' + selectedCategory);
-			}
-		},
-		[ selectedCategory ]
-	);
+	// useEffect(
+	// 	() => {
+	// 		if (selectedCategory) {
+	// 			window.history.pushState({}, '', '/products/' + selectedCategory);
+	// 		}
+	// 	},
+	// 	[ selectedCategory ]
+	// );
 
 	const categories = [
 		{ label: 'Antibiotics', image: 'img/coffee.png' },
@@ -52,6 +56,19 @@ export const ProductPageTemplate = ({
 		<div>
 			<FullWidthImage img={heroImage} title={title} />
 			<section className="section section--gradient">
+				{/* <Breadcrumb location={location} crumbLabel="Products" /> */}
+				{selectedCategory ? (
+					<nav className="breadcrumb">
+						<ul>
+							<li>
+								<a href="/products">Products</a>
+							</li>
+							<li className="is-active">
+								<a href="/products?`${selectedCategory}`">{selectedCategory}</a>
+							</li>
+						</ul>
+					</nav>
+				) : null}
 				<div className="container">
 					{selectedCategory ? (
 						<div className="columns">
@@ -75,7 +92,8 @@ export const ProductPageTemplate = ({
 							</div>
 							<div className="column is-10">
 								<div className="title has-text-success-dark">{selectedCategory}</div>
-								<ProductGroup productList={productList} />
+								{/* <ProductGroup productList={productList} /> */}
+								<ProductList selectedCategory={selectedCategory} />
 							</div>
 						</div>
 					) : (
@@ -112,7 +130,7 @@ ProductPageTemplate.propTypes = {
 	})
 };
 
-const ProductPage = ({ data }) => {
+const ProductPage = ({ data, location }) => {
 	const { frontmatter } = data.markdownRemark;
 
 	return (
@@ -128,6 +146,7 @@ const ProductPage = ({ data }) => {
 				testimonials={frontmatter.testimonials}
 				fullImage={frontmatter.full_image}
 				pricing={frontmatter.pricing}
+				location={location}
 			/>
 		</Layout>
 	);
@@ -151,77 +170,6 @@ export const productPageQuery = graphql`
 				image {
 					childImageSharp {
 						gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-					}
-				}
-				productList {
-					brandName
-					genericName
-					category
-					image {
-						childImageSharp {
-							gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
-						}
-					}
-				}
-				heading
-				description
-				intro {
-					blurbs {
-						image {
-							childImageSharp {
-								gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
-							}
-						}
-						text
-					}
-					heading
-					description
-				}
-				main {
-					heading
-					description
-					image1 {
-						alt
-						image {
-							childImageSharp {
-								gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
-							}
-						}
-					}
-					image2 {
-						alt
-						image {
-							childImageSharp {
-								gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
-							}
-						}
-					}
-					image3 {
-						alt
-						image {
-							childImageSharp {
-								gatsbyImageData(quality: 72, layout: FULL_WIDTH)
-							}
-						}
-					}
-				}
-				testimonials {
-					author
-					quote
-				}
-				full_image {
-					childImageSharp {
-						gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-					}
-				}
-				pricing {
-					heading
-					description
-					plans {
-						description
-						items
-						plan
-						price
 					}
 				}
 			}

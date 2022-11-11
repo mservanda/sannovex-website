@@ -10,8 +10,8 @@ export default function Navbar() {
 	const [ navBarActiveClass, setNavBarActiveClass ] = React.useState('');
 
 	const productMenuItems = [
-		{ label: 'Antibiotics', route: '/products/antibiotics' },
-		{ label: 'Corticosteroids', route: '/products/corticosteroids' }
+		{ label: 'Antibiotics', route: '/products?category=Antibiotics' },
+		{ label: 'Corticosteroids', route: '/products?category=Corticosteroids' }
 	];
 
 	const toggleHamburger = () => {

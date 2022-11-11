@@ -147,6 +147,18 @@ collections:
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
+          - {
+              label: Product List,
+              name: product_list,
+              widget: list,
+              fields:
+                [
+                  { label: Brand Name, name: brand_name, widget: string },
+                  { label: Generic Name, name: generic_name, widget: string },
+                  { label: Category, name: category, widget: string },
+                  { label: Image, name: image, widget: image },
+                ],
+            }
           - { label: Heading, name: heading, widget: string }
           - { label: Description, name: description, widget: string }
           - {
@@ -246,3 +258,29 @@ collections:
                   },
                 ],
             }
+
+  - name: "product"
+    label: "Product"
+    folder: "src/pages/product"
+    create: true
+    slug: "{{brandName}}-{{strength}}"
+    identifier_field: productName
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "product-profile",
+        }
+      - { label: "Product Name", name: "productName", widget: "string" }
+      - { label: "Brand Name", name: "brandName", widget: "string" }
+      - { label: "Generic Name", name: "genericName", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Antibiotics","Corticosteroids","Gastrointestinal","Diuretics","Vitamins","NSAID","Analgesic / Antipyretic"] }
+      - { label: "Subcategory", name: "subcategory", widget: "string", optional: true}
+      - { label: "Indication", name: "indication", widget: "text" }
+      - { label: "Route", name: "route", widget: "string" }
+      - { label: "Preparation", name: "preparation", widget: "string" }
+      - { label: "Strength", name: "strength", widget: "string" }
+      - { label: "Unit", name: "unit", widget: "string" }
+      - { label: "Packaging", name: "packaging", widget: "string" }
+      - { label: "Image", name: "image", widget: image }
