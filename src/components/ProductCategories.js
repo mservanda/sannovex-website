@@ -1,28 +1,36 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import FullWidthImage from '../components/FullWidthImage';
 
 const ProductCategories = ({ categories, setSelectedCategory }) => (
 	<div className="columns is-multiline">
 		{categories.map((category) => (
 			<div key={category.label} className="column is-4">
-				<section className="section">
-					<a class="level-item has-text-centered" onClick={() => setSelectedCategory(category.label)}>
+				<section>
+					<a className="box has-text-centered" onClick={() => setSelectedCategory(category.label)}>
 						<div
 							style={{
 								width: '240px',
 								display: 'inline-block'
 							}}
 						>
+							<h2 className="title has-text-info is-size-6">{category.label}</h2>
 							<PreviewCompatibleImage
 								imageInfo={{
 									image: category.image
 								}}
+								imageStyle={{ height: '100px' }}
 							/>
-							<p className="title has-text-info is-size-5">{category.label}</p>
 						</div>
 					</a>
 				</section>
+				{/* <section className="hero is-primary">
+					<a className="hero-body" onClick={() => setSelectedCategory(category.label)}>
+						<p className="title">{category.label}</p>
+					</a>
+				</section> */}
+				{/* <FullWidthImage img={category.image} title={category.label} /> */}
 			</div>
 		))}
 	</div>

@@ -1,9 +1,9 @@
 ---
-templateKey: 'about-page'
+templateKey: about-page
 path: /about
 title: Who We Are
-subtitle:
-image: /img/who-we-are.jpg
+subtitle: null
+image: /img/hero-image-present.jpg
 ---
 
 

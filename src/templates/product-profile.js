@@ -7,24 +7,35 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
-// eslint-disable-next-line
-export const ProductProfileTemplate = ({ product, location }) => {
-	const {
-		productName,
-		brandName,
-		genericName,
-		category,
-		subcategory,
-		strength,
-		indication,
-		preparation,
-		unit,
-		packaging,
-		image
-	} = product.frontmatter;
+// ProductProfileTemplate.propTypes = {
+//   content: PropTypes.node.isRequired,
+//   contentComponent: PropTypes.func,
+//   description: PropTypes.string,
+//   title: PropTypes.string,
+//   helmet: PropTypes.object,
+// };
 
-	const params = new URLSearchParams(location.search);
-	const [ selectedCategory, setSelectedCategory ] = useState(params.get('category'));
+export const ProductProfileTemplate = ({
+	productName,
+	brandName,
+	genericName,
+	category,
+	subcategory,
+	strength,
+	indication,
+	preparation,
+	unit,
+	packaging,
+	image,
+	location
+}) => {
+	let defaultCategory = null;
+	if (location) {
+		const params = new URLSearchParams(location.search);
+		defaultCategory = params.get('category');
+	}
+
+	const [ selectedCategory, setSelectedCategory ] = useState(defaultCategory);
 
 	return (
 		<section className="section is-medium">
@@ -34,10 +45,10 @@ export const ProductProfileTemplate = ({ product, location }) => {
 						<nav className="breadcrumb">
 							<ul>
 								<li>
-									<a href="/products">Products</a>
+									<a href="/product-list">Products</a>
 								</li>
 								<li>
-									<a href={`/products?category=${selectedCategory}`}>{selectedCategory}</a>
+									<a href={`/product-list?category=${selectedCategory}`}>{selectedCategory}</a>
 								</li>
 								<li className="is-active">
 									<a href="#">{productName}</a>
@@ -74,34 +85,38 @@ export const ProductProfileTemplate = ({ product, location }) => {
 	);
 };
 
-// ProductProfileTemplate.propTypes = {
-//   content: PropTypes.node.isRequired,
-//   contentComponent: PropTypes.func,
-//   description: PropTypes.string,
-//   title: PropTypes.string,
-//   helmet: PropTypes.object,
-// };
-
 const ProductProfile = ({ data, location }) => {
 	const { markdownRemark: product } = data;
-
 	return (
 		<Layout>
-			<ProductProfileTemplate product={product} location={location} />
+			<ProductProfileTemplate
+				productName={product.frontmatter.productName}
+				brandName={product.frontmatter.brandName}
+				genericName={product.frontmatter.genericName}
+				category={product.frontmatter.category}
+				subcategory={product.frontmatter.subcategory}
+				strength={product.frontmatter.strength}
+				indication={product.frontmatter.indication}
+				preparation={product.frontmatter.preparation}
+				unit={product.frontmatter.unit}
+				packaging={product.frontmatter.packaging}
+				image={product.frontmatter.image}
+				location={location}
+			/>
 		</Layout>
 	);
 };
 
-// ProductProfile.propTypes = {
-//   data: PropTypes.shape({
-//     markdownRemark: PropTypes.object,
-//   }),
-// };
+ProductProfile.propTypes = {
+	data: PropTypes.shape({
+		markdownRemark: PropTypes.object
+	})
+};
 
 export default ProductProfile;
 
 export const pageQuery = graphql`
-	query($id: String!) {
+	query ProductProfileByID($id: String!) {
 		markdownRemark(id: { eq: $id }) {
 			id
 			frontmatter {

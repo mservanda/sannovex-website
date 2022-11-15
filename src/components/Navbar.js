@@ -1,17 +1,29 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-import github from '../img/github-icon.svg';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import logo from '../img/logo.svg';
 
 export default function Navbar() {
-	const [ anchorEl, setAnchorEl ] = React.useState(null);
 	const [ active, setActive ] = React.useState(false);
 	const [ navBarActiveClass, setNavBarActiveClass ] = React.useState('');
 
+	const data = useStaticQuery(graphql`
+		query {
+			markdownRemark(frontmatter: { templateKey: { eq: "product-list-page" } }) {
+				frontmatter {
+					categories {
+						label
+					}
+				}
+			}
+		}
+	`);
+
+	const { frontmatter } = data.markdownRemark;
+
 	const productMenuItems = [
-		{ label: 'Antibiotics', route: '/products?category=Antibiotics' },
-		{ label: 'Corticosteroids', route: '/products?category=Corticosteroids' }
+		{ label: 'Antibiotics', route: '/product-list?category=Antibiotics' },
+		{ label: 'Corticosteroids', route: '/product-list?category=Corticosteroids' }
 	];
 
 	const toggleHamburger = () => {
@@ -54,13 +66,22 @@ export default function Navbar() {
 							Who We Are
 						</Link>
 						<div className={`navbar-item has-dropdown is-hoverable`}>
-							<a className="navbar-link is-arrowless" href="/products">
+							<a className="navbar-link is-arrowless" href="/product-list">
 								Our Products
 							</a>
 							<div className="navbar-dropdown is-boxed">
-								{productMenuItems.map((item) => (
+								{/* {productMenuItems.map((item) => (
 									<a key={item.label} className="navbar-item" href={`${item.route}`}>
 										{item.label}
+									</a>
+								))} */}
+								{frontmatter.categories.map((category) => (
+									<a
+										key={category.label}
+										className="navbar-item"
+										href={`/product-list?category=${category.label}`}
+									>
+										{category.label}
 									</a>
 								))}
 							</div>
@@ -69,9 +90,9 @@ export default function Navbar() {
 						{/* <Link className="navbar-item" to="/blog">
 								Blog
 							</Link> */}
-						<Link className="navbar-item" to="/contact">
+						{/* <Link className="navbar-item" to="/contact">
 							Contact Us
-						</Link>
+						</Link> */}
 						{/* <Link className="navbar-item" to="/contact/examples">
 								Form Examples
 							</Link> */}

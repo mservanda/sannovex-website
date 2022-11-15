@@ -37,7 +37,7 @@ collections:
     label: "Pages"
     files:
       - file: "src/pages/index.md"
-        label: "Landing Page"
+        label: "Home Page"
         name: "index"
         fields:
           - {
@@ -49,78 +49,6 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
           - { label: Image, name: image, widget: image }
-          - {
-              label: Mainpitch,
-              name: mainpitch,
-              widget: object,
-              fields:
-                [
-                  { label: Title, name: title, widget: string },
-                  { label: Description, name: description, widget: text },
-                ],
-            }
-          - { label: Heading, name: heading, widget: string }
-          - { label: Description, name: description, widget: string }
-          - {
-              label: Intro,
-              name: intro,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Blurbs,
-                    name: blurbs,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Text, name: text, widget: text },
-                      ],
-                  },
-                ],
-            }
-          - {
-              label: Main,
-              name: main,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Image1,
-                    name: image1,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image2,
-                    name: image2,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image3,
-                    name: image3,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                ],
-            }
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
@@ -132,136 +60,32 @@ collections:
               default: "about-page",
             }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
           - { label: Image, name: image, widget: image }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+      - file: "src/pages/product-list/index.md"
+        label: "Product List"
+        name: "product-list"
         fields:
           - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "product-page",
-            }
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
-          - {
-              label: Product List,
-              name: product_list,
-              widget: list,
-              fields:
-                [
-                  { label: Brand Name, name: brand_name, widget: string },
-                  { label: Generic Name, name: generic_name, widget: string },
-                  { label: Category, name: category, widget: string },
-                  { label: Image, name: image, widget: image },
-                ],
-            }
-          - { label: Heading, name: heading, widget: string }
-          - { label: Description, name: description, widget: string }
-          - {
-              label: Intro,
-              name: intro,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Blurbs,
-                    name: blurbs,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Text, name: text, widget: text },
-                      ],
-                  },
-                ],
-            }
-          - {
-              label: Main,
-              name: main,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Image1,
-                    name: image1,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image2,
-                    name: image2,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                  {
-                    label: Image3,
-                    name: image3,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Alt, name: alt, widget: string },
-                      ],
-                  },
-                ],
-            }
-          - {
-              label: Testimonials,
-              name: testimonials,
-              widget: list,
-              fields:
-                [
-                  { label: Quote, name: quote, widget: string },
-                  { label: Author, name: author, widget: string },
-                ],
-            }
-          - { label: Full_image, name: full_image, widget: image }
-          - {
-              label: Pricing,
-              name: pricing,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: string },
-                  {
-                    label: Plans,
-                    name: plans,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Plan, name: plan, widget: string },
-                        { label: Price, name: price, widget: string },
-                        {
-                          label: Description,
-                          name: description,
-                          widget: string,
-                        },
-                        { label: Items, name: items, widget: list },
-                      ],
-                  },
-                ],
-            }
-
-  - name: "product"
-    label: "Product"
-    folder: "src/pages/product"
+            label: "Template Key",
+            name: "templateKey",
+            widget: "hidden",
+            default: "product-list-page"
+          }
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            fields: 
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          
+                
+          
+  - name: "product-profile"
+    label: "Product Profile"
+    folder: "src/pages/product-profile"
     create: true
     slug: "{{brandName}}-{{strength}}"
     identifier_field: productName
@@ -275,12 +99,12 @@ collections:
       - { label: "Product Name", name: "productName", widget: "string" }
       - { label: "Brand Name", name: "brandName", widget: "string" }
       - { label: "Generic Name", name: "genericName", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Antibiotics","Corticosteroids","Gastrointestinal","Diuretics","Vitamins","NSAID","Analgesic / Antipyretic"] }
+      - { label: "Category", name: "category", widget: "select", options: ["Antibiotics","Corticosteroids","Gastrointestinal","Diuretics","Vitamins","NSAID","Analgesic/Antipyretic"] }
       - { label: "Subcategory", name: "subcategory", widget: "string", optional: true}
       - { label: "Indication", name: "indication", widget: "text" }
       - { label: "Route", name: "route", widget: "string" }
       - { label: "Preparation", name: "preparation", widget: "string" }
       - { label: "Strength", name: "strength", widget: "string" }
       - { label: "Unit", name: "unit", widget: "string" }
-      - { label: "Packaging", name: "packaging", widget: "string" }
+      - { label: "Packaging", name: "packaging", widget: "string", optional: true }
       - { label: "Image", name: "image", widget: image }
