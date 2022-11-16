@@ -30,47 +30,52 @@ export const ProductListPageTemplate = ({ image, title, categories, location }) 
 		<div>
 			<FullWidthImage img={heroImage} height={450} title={title} />
 			<section className="section section--gradient">
-				{selectedCategory ? (
+				<section className="section section--gradient">
 					<div className="container">
-						<div className="columns">
-							<div className="column is-2 is-hidden-mobile">
-								<div className="panel">
-									{/* <p className="panel-heading has-background-grey has-text-light">Categories</p> */}
-									{categories.map((category) => (
-										<a
-											key={category.label}
-											className={
-												'panel-block' +
-												(selectedCategory === category.label
-													? ' has-background-link-light has-text-success-dark'
-													: '')
-											}
-											onClick={() => handleCategorySelection(category.label)}
-										>
-											{category.label}
-										</a>
-									))}
+						{selectedCategory ? (
+							<div className="columns">
+								<div className="column is-2 is-hidden-mobile">
+									<div className="panel">
+										{/* <p className="panel-heading has-background-grey has-text-light">Categories</p> */}
+										{categories.map((category) => (
+											<a
+												key={category.label}
+												className={
+													'panel-block' +
+													(selectedCategory === category.label
+														? ' has-background-link-light has-text-success-dark'
+														: '')
+												}
+												onClick={() => handleCategorySelection(category.label)}
+											>
+												{category.label}
+											</a>
+										))}
+									</div>
+								</div>
+								<div className="column is-10 has-text-centered">
+									{/* <div className="title has-text-success-dark">{selectedCategory}</div> */}
+									<nav className="breadcrumb">
+										<ul>
+											<li>
+												<a href="/product-list">Products</a>
+											</li>
+											<li className="is-active">
+												<a href="/product-list?`${selectedCategory}`">{selectedCategory}</a>
+											</li>
+										</ul>
+									</nav>
+									<ProductList selectedCategory={selectedCategory} />
 								</div>
 							</div>
-							<div className="column is-10 has-text-centered">
-								{/* <div className="title has-text-success-dark">{selectedCategory}</div> */}
-								<nav className="breadcrumb">
-									<ul>
-										<li>
-											<a href="/product-list">Products</a>
-										</li>
-										<li className="is-active">
-											<a href="/product-list?`${selectedCategory}`">{selectedCategory}</a>
-										</li>
-									</ul>
-								</nav>
-								<ProductList selectedCategory={selectedCategory} />
-							</div>
-						</div>
+						) : null}
 					</div>
-				) : (
-					<ProductCategories categories={categories} setSelectedCategory={handleCategorySelection} />
-				)}
+					<div className="container">
+						{selectedCategory ? null : (
+							<ProductCategories categories={categories} setSelectedCategory={handleCategorySelection} />
+						)}
+					</div>
+				</section>
 			</section>
 		</div>
 	);
