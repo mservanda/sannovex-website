@@ -23,7 +23,7 @@ export const ProductListPageTemplate = ({ image, title, categories, location }) 
 
 	const handleCategorySelection = (category) => {
 		setSelectedCategory(category);
-		window.location.replace(`/product-list?category=${category}`);
+		window.history.replaceState({}, '', `/product-list?category=${category}`);
 	};
 
 	return (
