@@ -78,7 +78,7 @@ export default function Navbar() {
 								{frontmatter.categories.map((category) => (
 									<a
 										key={category.label}
-										className="navbar-item"
+										className="navbar-item is-hidden-mobile"
 										href={`/product-list?category=${category.label}`}
 									>
 										{category.label}

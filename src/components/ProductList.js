@@ -6,7 +6,10 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 const ProductList = ({ selectedCategory }) => {
 	const data = useStaticQuery(graphql`
 		query {
-			allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "product-profile" } } }) {
+			allMarkdownRemark(
+				filter: { frontmatter: { templateKey: { eq: "product-profile" } } }
+				sort: { order: ASC, fields: [frontmatter___productName] }
+			) {
 				edges {
 					node {
 						id
@@ -36,38 +39,37 @@ const ProductList = ({ selectedCategory }) => {
 	const { edges: productList } = data.allMarkdownRemark;
 
 	return (
-		<div className="columns is-multiline">
+		<div className="columns is-multiline has-background-light">
 			{productList
 				.filter(({ node: product }) => product.frontmatter.category === selectedCategory)
 				.map(({ node: product }) => (
-					<Link
-						className="column is-one-quarter-desktop is-one-third-tablet"
-						key={product.id}
-						to={`${product.fields.slug}?category=${selectedCategory}`}
-					>
-						<div className="card">
-							<span className="tag is-danger is-small">
-								{product.frontmatter.subcategory || product.frontmatter.category}
-							</span>
-							<div className="card-image px-4">
-								<figure className="image is-3by3">
+					<section key={product.id} className="column is-one-third-desktop is-one-third-tablet">
+						<Link to={`${product.fields.slug}?category=${selectedCategory}`}>
+							<div className="card">
+								<div className="card-image">
 									<PreviewCompatibleImage
 										imageInfo={{
 											image: product.frontmatter.image
 										}}
+										imageStyle={{ height: '150px', objectFit: 'fill' }}
 									/>
-								</figure>
-							</div>
-							<div className="card-content has-background-info-dark has-text-white">
-								<div className="media">
-									<div className="media-content">
-										<p className="is-size-5 is-4">{product.frontmatter.productName}</p>
-										<p className="is-small is-italic">{product.frontmatter.genericName}</p>
-									</div>
+								</div>
+
+								<div className="card-content has-background-info-dark has-text-white has-text-centered">
+									<p className="is-small generic-name">{product.frontmatter.genericName}</p>
+									<p className="is-small has-text-weight-bold">{product.frontmatter.brandName}</p>
+									<p className="is-small has-text-weight-bold">{product.frontmatter.strength}</p>
+									<p className="has-text-weight-light is-italic product-preparation-text">
+										{product.frontmatter.preparation}
+									</p>
+
+									<span className="tag is-danger is-small">
+										{product.frontmatter.subcategory || product.frontmatter.category}
+									</span>
 								</div>
 							</div>
-						</div>
-					</Link>
+						</Link>
+					</section>
 				))}
 		</div>
 	);

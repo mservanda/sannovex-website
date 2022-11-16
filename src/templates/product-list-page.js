@@ -21,54 +21,56 @@ export const ProductListPageTemplate = ({ image, title, categories, location }) 
 	}
 	const [ selectedCategory, setSelectedCategory ] = useState(defaultCategory);
 
+	const handleCategorySelection = (category) => {
+		setSelectedCategory(category);
+		window.location.replace(`/product-list?category=${category}`);
+	};
+
 	return (
 		<div>
 			<FullWidthImage img={heroImage} height={450} title={title} />
 			<section className="section section--gradient">
-				{/* <Breadcrumb location={location} crumbLabel="Products" /> */}
 				{selectedCategory ? (
-					<nav className="breadcrumb">
-						<ul>
-							<li>
-								<a href="/product-list">Products</a>
-							</li>
-							<li className="is-active">
-								<a href="/product-list?`${selectedCategory}`">{selectedCategory}</a>
-							</li>
-						</ul>
-					</nav>
-				) : null}
-				<div className="container">
-					{selectedCategory ? (
+					<div className="container">
 						<div className="columns">
 							<div className="column is-2 is-hidden-mobile">
 								<div className="panel">
 									{/* <p className="panel-heading has-background-grey has-text-light">Categories</p> */}
 									{categories.map((category) => (
 										<a
+											key={category.label}
 											className={
 												'panel-block' +
 												(selectedCategory === category.label
 													? ' has-background-link-light has-text-success-dark'
 													: '')
 											}
-											onClick={() => setSelectedCategory(category.label)}
+											onClick={() => handleCategorySelection(category.label)}
 										>
 											{category.label}
 										</a>
 									))}
 								</div>
 							</div>
-							<div className="column is-10">
-								<div className="title has-text-success-dark">{selectedCategory}</div>
-								{/* <ProductGroup productList={productList} /> */}
+							<div className="column is-10 has-text-centered">
+								{/* <div className="title has-text-success-dark">{selectedCategory}</div> */}
+								<nav className="breadcrumb">
+									<ul>
+										<li>
+											<a href="/product-list">Products</a>
+										</li>
+										<li className="is-active">
+											<a href="/product-list?`${selectedCategory}`">{selectedCategory}</a>
+										</li>
+									</ul>
+								</nav>
 								<ProductList selectedCategory={selectedCategory} />
 							</div>
 						</div>
-					) : (
-						<ProductCategories categories={categories} setSelectedCategory={setSelectedCategory} />
-					)}
-				</div>
+					</div>
+				) : (
+					<ProductCategories categories={categories} setSelectedCategory={handleCategorySelection} />
+				)}
 			</section>
 		</div>
 	);

@@ -97,14 +97,14 @@ collections:
           default: "product-profile",
         }
       - { label: "Product Name", name: "productName", widget: "string" }
-      - { label: "Brand Name", name: "brandName", widget: "string" }
-      - { label: "Generic Name", name: "genericName", widget: "string" }
       - { label: "Category", name: "category", widget: "select", options: ["Antibiotics","Corticosteroids","Gastrointestinal","Diuretics","Vitamins","NSAID","Analgesic/Antipyretic"] }
       - { label: "Subcategory", name: "subcategory", widget: "string", optional: true}
-      - { label: "Indication", name: "indication", widget: "text" }
-      - { label: "Route", name: "route", widget: "string" }
-      - { label: "Preparation", name: "preparation", widget: "string" }
+      - { label: "Generic Name", name: "genericName", widget: "string" }
+      - { label: "Brand Name", name: "brandName", widget: "string" }
       - { label: "Strength", name: "strength", widget: "string" }
+      - { label: "Preparation", name: "preparation", widget: "string" }
+      - { label: "Route", name: "route", widget: "string" }
       - { label: "Unit", name: "unit", widget: "string" }
       - { label: "Packaging", name: "packaging", widget: "string", optional: true }
+      - { label: "Indication", name: "indication", widget: "text" }
       - { label: "Image", name: "image", widget: image }

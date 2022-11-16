@@ -8,15 +8,15 @@ categories:
   - label: Antibiotics
     image: /img/antibiotics.jpg
   - label: Corticosteroids
-    image: /img/antibiotics.jpg
+    image: /img/hydrovex-100mg.jpg
   - label: Gastrointestinal
-    image: /img/antibiotics.jpg
+    image: /img/gastrointestinal.jpg
   - label: Diuretics
-    image: /img/antibiotics.jpg
+    image: /img/furosan.jpg
   - label: Vitamins
-    image: /img/antibiotics.jpg
+    image: /img/sannovit.jpg
   - label: NSAID
-    image: /img/antibiotics.jpg
+    image: /img/ketovex.jpg
   - label: Analgesic/Antipyretic
-    image: /img/antibiotics.jpg
+    image: /img/infulgan.jpg
 ---

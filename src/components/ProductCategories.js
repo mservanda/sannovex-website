@@ -21,16 +21,11 @@ const ProductCategories = ({ categories, setSelectedCategory }) => (
 									image: category.image
 								}}
 								imageStyle={{ height: '100px' }}
+								objectFit={'cover'}
 							/>
 						</div>
 					</a>
 				</section>
-				{/* <section className="hero is-primary">
-					<a className="hero-body" onClick={() => setSelectedCategory(category.label)}>
-						<p className="title">{category.label}</p>
-					</a>
-				</section> */}
-				{/* <FullWidthImage img={category.image} title={category.label} /> */}
 			</div>
 		))}
 	</div>
