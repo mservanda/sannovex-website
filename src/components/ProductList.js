@@ -26,7 +26,7 @@ const ProductList = ({ selectedCategory }) => {
 							preparation
 							image {
 								childImageSharp {
-									gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
+									gatsbyImageData(quality: 100, layout: CONSTRAINED)
 								}
 							}
 						}

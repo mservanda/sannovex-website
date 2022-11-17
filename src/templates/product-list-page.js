@@ -126,7 +126,7 @@ export const pageQuery = graphql`
 					label
 					image {
 						childImageSharp {
-							gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
+							gatsbyImageData(width: 526, quality: 100, layout: CONSTRAINED)
 						}
 					}
 				}

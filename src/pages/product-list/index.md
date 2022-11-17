@@ -18,5 +18,7 @@ categories:
   - label: NSAID
     image: /img/ketovex.jpg
   - label: Analgesic/Antipyretic
-    image: /img/infulgan.jpg
+    image: /img/infulgan-sm.jpg
+  - label: Others
+    image: /img/sannogel-sm.jpg
 ---
