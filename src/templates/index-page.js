@@ -2,27 +2,69 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
+import Slider from 'react-slick';
 
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
 import FullWidthImage from '../components/FullWidthImage';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 // eslint-disable-next-line
-export const IndexPageTemplate = ({ image, title, heading, subtitle, mainpitch, description, intro }) => {
-	const heroImage = getImage(image) || image;
+export const IndexPageTemplate = ({ title, subtitle, carouselImages }) => {
+	// const heroImage = getImage(image) || image;
+
+	const sliderSettings = {
+		customPaging: function(index) {
+			return (
+				<a>
+					<PreviewCompatibleImage
+						imageInfo={{
+							image: carouselImages[index].image
+						}}
+						imageStyle={{ height: '50px' }}
+						objectFit={'contain'}
+					/>
+				</a>
+			);
+		},
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		speed: 1000,
+		autoplaySpeed: 5000,
+		cssEase: 'linear',
+		pauseOnHover: true,
+		dotsClass: 'slick-dots slick-thumb'
+	};
 
 	return (
 		<div>
-			<FullWidthImage img={heroImage} title={title} subtitle={subtitle} />
+			{/* <FullWidthImage img={heroImage} title={title} subtitle={subtitle} /> */}
+
+			<Slider {...sliderSettings}>
+				{carouselImages.map((item) => (
+					<div>
+						<PreviewCompatibleImage
+							imageInfo={{
+								image: item.image
+							}}
+							imageStyle={{ height: '400px' }}
+							objectFit={'scale-down'}
+						/>
+					</div>
+				))}
+			</Slider>
 		</div>
 	);
 };
 
 IndexPageTemplate.propTypes = {
-	image: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
 	title: PropTypes.string,
-	subtitle: PropTypes.string
+	subtitle: PropTypes.string,
+	carouselImages: PropTypes.array
 };
 
 const IndexPage = ({ data }) => {
@@ -30,7 +72,11 @@ const IndexPage = ({ data }) => {
 
 	return (
 		<Layout>
-			<IndexPageTemplate image={frontmatter.image} title={frontmatter.title} subtitle={frontmatter.subtitle} />
+			<IndexPageTemplate
+				title={frontmatter.title}
+				subtitle={frontmatter.subtitle}
+				carouselImages={frontmatter.carouselImages}
+			/>
 		</Layout>
 	);
 };
@@ -51,9 +97,12 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				subtitle
-				image {
-					childImageSharp {
-						gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+				carouselImages {
+					label
+					image {
+						childImageSharp {
+							gatsbyImageData(quality: 100)
+						}
 					}
 				}
 			}

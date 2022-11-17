@@ -6,7 +6,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 	const data = entry.getIn([ 'data' ]).toJS();
 
 	if (data) {
-		return <IndexPageTemplate image={getAsset(data.image)} title={data.title} subtitle={data.subtitle} />;
+		return <IndexPageTemplate title={data.title} subtitle={data.subtitle} />;
 	} else {
 		return <div>Loading...</div>;
 	}

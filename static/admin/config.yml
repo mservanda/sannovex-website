@@ -48,7 +48,12 @@ collections:
             }
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
-          - { label: Image, name: image, widget: image }
+          - label: "Carousel Images"
+            name: "carouselImages"
+            widget: "list"
+            fields: 
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
@@ -97,7 +102,7 @@ collections:
           default: "product-profile",
         }
       - { label: "Product Name", name: "productName", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Antibiotics","Corticosteroids","Gastrointestinal","Diuretics","Vitamins","NSAID","Analgesic/Antipyretic"] }
+      - { label: "Category", name: "category", widget: "select", options: ["Antibiotics","Corticosteroids","Gastrointestinal","Diuretics","Vitamins","NSAID","Analgesic/Antipyretic","Others"] }
       - { label: "Subcategory", name: "subcategory", widget: "string", optional: true}
       - { label: "Generic Name", name: "genericName", widget: "string" }
       - { label: "Brand Name", name: "brandName", widget: "string" }
