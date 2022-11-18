@@ -3,7 +3,7 @@ templateKey: about-page
 path: /about
 title: Who We Are
 subtitle: null
-image: /img/hero-image-present.jpg
+image: /img/about.jpg
 ---
 
 
