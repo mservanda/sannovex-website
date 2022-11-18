@@ -34,7 +34,7 @@ export const IndexPageTemplate = ({ title, subtitle, carouselImages }) => {
 		slidesToScroll: 1,
 		autoplay: true,
 		speed: 1000,
-		autoplaySpeed: 5000,
+		autoplaySpeed: 3000,
 		cssEase: 'linear',
 		pauseOnHover: true,
 		dotsClass: 'slick-dots slick-thumb'
@@ -46,13 +46,19 @@ export const IndexPageTemplate = ({ title, subtitle, carouselImages }) => {
 
 			<Slider {...sliderSettings}>
 				{carouselImages.map((item) => (
-					<div>
-						<PreviewCompatibleImage
+					<div key={item.label}>
+						{/* <PreviewCompatibleImage
 							imageInfo={{
 								image: item.image
 							}}
 							imageStyle={{ height: '400px' }}
 							objectFit={'scale-down'}
+						/> */}
+						<FullWidthImage
+							img={getImage(item.image) || item.image}
+							height={600}
+							title={title}
+							subtitle={subtitle}
 						/>
 					</div>
 				))}

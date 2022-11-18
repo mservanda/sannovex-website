@@ -114,3 +114,4 @@ collections:
       - { label: "Indication", name: "indication", widget: "text" }
       - { label: "Image", name: "image", widget: image }
       - { label: "Portrait Image", name: "portraitImage", widget: image, optional: true }
+      - { label: "Featured Product", name: "featuredProduct", widget: "boolean", default: false}
