@@ -27,6 +27,7 @@ export const ProductProfileTemplate = ({
 	unit,
 	packaging,
 	image,
+	portraitImage,
 	location
 }) => {
 	let defaultCategory = null;
@@ -73,7 +74,7 @@ export const ProductProfileTemplate = ({
 							<div className="column is-6">
 								<PreviewCompatibleImage
 									imageInfo={{
-										image: image
+										image: portraitImage || image
 									}}
 								/>
 							</div>
@@ -101,6 +102,7 @@ const ProductProfile = ({ data, location }) => {
 				unit={product.frontmatter.unit}
 				packaging={product.frontmatter.packaging}
 				image={product.frontmatter.image}
+				portraitImage={product.frontmatter.portraitImage}
 				location={location}
 			/>
 		</Layout>
@@ -131,6 +133,11 @@ export const pageQuery = graphql`
 				unit
 				packaging
 				image {
+					childImageSharp {
+						gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+					}
+				}
+				portraitImage {
 					childImageSharp {
 						gatsbyImageData(quality: 100, layout: FULL_WIDTH)
 					}

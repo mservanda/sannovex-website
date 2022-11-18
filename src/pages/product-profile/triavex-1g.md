@@ -4,7 +4,7 @@ productName: TRIAVEX 1g
 category: Antibiotics
 subcategory: Antibacterial
 genericName: Ceftriaxone
-brandName: TRIAVEX
+brandName: TRIAVEX 1
 strength: 1g
 preparation: Powder for Injection (IM / IV)
 route: Injection
@@ -15,5 +15,6 @@ indication: Ceftriaxone is used in the treatment of lower respiratory tract
   bacteremia or septicemia, pelvic inflammatory disease, urinary tract
   infections, skin and soft tissue infections, bacterial meningitis, surgical
   prophylaxis, sexually transmitted disease bone and joint infections.
-image: /img/triavex.jpg
+image: /img/triavex-sm.jpg
+portraitImage: /img/triavex.jpg
 ---

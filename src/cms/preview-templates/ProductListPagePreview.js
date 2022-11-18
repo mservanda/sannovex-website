@@ -6,7 +6,7 @@ const ProductListPagePreview = ({ entry, getAsset }) => {
 	const data = entry.getIn([ 'data' ]).toJS();
 
 	if (data) {
-		return <ProductListPageTemplate image={getAsset(data.image)} title={data.title} location={data.location} />;
+		return <ProductListPageTemplate title={data.title} location={data.location} />;
 	} else {
 		return <div>Loading...</div>;
 	}

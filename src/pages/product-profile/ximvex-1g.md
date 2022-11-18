@@ -17,5 +17,6 @@ indication: Cefotaxime is used for the treatment of lower respiratory tract
   skin structure infections. Intra-abdominal infections including peritonitis;
   Bone and/or joint infections; Central Nervous System infections e.g.
   meningitis and ventriculitis.
-image: /img/ximvex.jpg
+image: /img/ximvex-sm.jpg
+portraitImage: /img/ximvex.jpg
 ---

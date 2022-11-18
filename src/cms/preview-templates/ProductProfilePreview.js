@@ -17,6 +17,7 @@ const ProductProfilePreview = ({ entry, getAsset }) => {
 			unit={entry.getIn([ 'data', 'unit' ])}
 			packaging={entry.getIn([ 'data', 'packaging' ])}
 			image={getAsset(entry.getIn([ 'data', 'image' ]))}
+			portraitImage={getAsset(entry.getIn([ 'data', 'portraitImage' ]))}
 			location={entry.getIn([ 'data', 'location' ])}
 		/>
 	);

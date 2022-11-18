@@ -15,5 +15,6 @@ indication: "Treatment of non-complicated and complicated infections caused by
   Respiratory infections, Abdominal infections, Urinary Tract infections, Small
   pelvis infections, Skin and soft tissue infections, Bone and joint infections,
   Sepsis"
-image: /img/cipronat-200mg-100ml.jpg
+image: /img/cipronat-200mg-100ml-sm.jpg
+portraitImage: /img/cipronat-200mg-100ml.jpg
 ---

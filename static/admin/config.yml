@@ -113,3 +113,4 @@ collections:
       - { label: "Packaging", name: "packaging", widget: "string", optional: true }
       - { label: "Indication", name: "indication", widget: "text" }
       - { label: "Image", name: "image", widget: image }
+      - { label: "Portrait Image", name: "portraitImage", widget: image, optional: true }
