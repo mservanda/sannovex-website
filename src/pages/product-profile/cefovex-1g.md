@@ -15,5 +15,7 @@ indication: Used Principally in the treatment and prophylaxis of anaerobic and
   Indications include endometritis (prophylaxis at caesarean section). Pelvic
   inflammatory disease and surgical infection (prophylaxis. It may also be used
   in the treatment of gonorrhea and urinary-tract infections.
-image: /img/cefovex.jpg
+image: /img/cefovex-sm.jpg
+portraitImage: /img/cefovex.jpg
+featuredProduct: false
 ---
