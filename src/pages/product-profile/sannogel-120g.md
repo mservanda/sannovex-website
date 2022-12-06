@@ -14,4 +14,6 @@ indication: This product is an air sterilization product with sustained release
   technology of chlorine dioxide for longer lasting disinfection, which can
   effectively kill pathogenic bacteria and viruses.
 image: /img/sannogel-sm.jpg
+portraitImage: /img/sannogel.jpg
+featuredProduct: false
 ---

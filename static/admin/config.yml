@@ -65,8 +65,12 @@ collections:
               default: "about-page",
             }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: Image, name: image, widget: image }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: Image, name: "image", widget: image }
+          - { label: "Mission", name: "mission", widget: "markdown"}
+          - { label: "Vision", name: "vision", widget: "markdown"}
+          - { label: "Business", name: "business", widget: "markdown"}
+          - { label: "Operations", name: "operations", widget: "markdown"}
+          - { label: "Partners", name: "partners", widget: "markdown"}
       - file: "src/pages/product-list/index.md"
         label: "Product List"
         name: "product-list"

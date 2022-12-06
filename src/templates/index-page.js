@@ -15,19 +15,6 @@ export const IndexPageTemplate = ({ title, subtitle, carouselImages }) => {
 	// const heroImage = getImage(image) || image;
 
 	const sliderSettings = {
-		customPaging: function(index) {
-			return (
-				<a>
-					<PreviewCompatibleImage
-						imageInfo={{
-							image: carouselImages[index].image
-						}}
-						imageStyle={{ height: '50px' }}
-						objectFit={'contain'}
-					/>
-				</a>
-			);
-		},
 		dots: true,
 		infinite: true,
 		slidesToShow: 1,
@@ -36,7 +23,7 @@ export const IndexPageTemplate = ({ title, subtitle, carouselImages }) => {
 		speed: 1000,
 		autoplaySpeed: 3000,
 		cssEase: 'linear',
-		pauseOnHover: true,
+		pauseOnHover: false,
 		dotsClass: 'slick-dots slick-thumb'
 	};
 

@@ -35,8 +35,11 @@
     "react-helmet": "^6.0.0",
     "react-router-dom": "^6.4.3",
     "react-slick": "^0.29.0",
+    "remark-frontmatter": "^4.0.1",
+    "remark-html": "^15.0.1",
     "sass": "^1.43.2",
     "slick-carousel": "^1.8.1",
+    "unified": "^10.1.2",
     "uuid": "^8.0.0"
   },
   "keywords": [
